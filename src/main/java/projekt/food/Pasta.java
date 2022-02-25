@@ -5,7 +5,7 @@ import java.util.function.DoubleUnaryOperator;
 public interface Pasta extends Saucable {
     double getThickness();
 
-    interface Config extends Food.Config {
+    interface Config extends Saucable.Config {
         void thickness(DoubleUnaryOperator pobjDoubleUnaryOperator);
 
         DoubleUnaryOperator getThicknessMutator();
