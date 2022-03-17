@@ -13,6 +13,15 @@ public class PastaImpl implements Pasta{
     private double thickness;
     private String sauce;
 
+    /*
+   constructor
+   @param price, sets the value of price
+   @param weight, sets the value of weight
+   @param foodVariant, sets the value of foodVariant
+   @param extras, sets the value of extras
+   @param thickness, sets the value of thickness
+    @param sauce, sets the value of sauce
+    */
     public PastaImpl(BigDecimal price, double weight, IceCream.Variant<?,?> foodVariant, List<? extends Extra<?>> extras, double thickness, String sauce)
     {
         this.price = price;
@@ -23,31 +32,49 @@ public class PastaImpl implements Pasta{
         this.sauce = sauce;
     }
     @Override
+     /*
+    @return the value of price
+     */
     public BigDecimal getPrice() {
         return price;
     }
 
     @Override
+     /*
+    @return the value of weight
+     */
     public double getWeight() {
         return weight;
     }
 
     @Override
+     /*
+    @return the value of foodVariant
+     */
     public Food.Variant<?, ?> getFoodVariant() {
         return foodVariant;
     }
 
     @Override
+     /*
+    @return the value of extras
+     */
     public List<? extends Extra<?>> getExtras() {
         return extras;
     }
 
     @Override
+     /*
+    @return the value of thickness
+     */
     public double getThickness() {
         return thickness;
     }
 
     @Override
+     /*
+    @return the value of sauce
+     */
     public String getSauce() {
         return sauce;
     }
@@ -56,7 +83,7 @@ public class PastaImpl implements Pasta{
 
         @Override
         public void price(UnaryOperator<BigDecimal> priceMutator) {
-
+            priceMutator.apply((BigDecimal) priceMutator);
         }
 
         @Override
@@ -66,6 +93,7 @@ public class PastaImpl implements Pasta{
 
         @Override
         public void weight(DoubleUnaryOperator weightMutator) {
+           // weightMutator.applyAsDouble(weightMutator.);
         }
 
         @Override
@@ -74,8 +102,11 @@ public class PastaImpl implements Pasta{
         }
 
         @Override
+        /*
+        the apply method of the UnaryOperator both accepts and returns a string
+         */
         public void sauce(UnaryOperator<String> pobjUnaryOperator) {
-
+            pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
         }
 
         @Override
@@ -86,7 +117,7 @@ public class PastaImpl implements Pasta{
 
         @Override
         public void thickness(DoubleUnaryOperator pobjDoubleUnaryOperator) {
-
+           // pobjDoubleUnaryOperator.applyAsDouble(pobjDoubleUnaryOperator);
         }
 
         @Override

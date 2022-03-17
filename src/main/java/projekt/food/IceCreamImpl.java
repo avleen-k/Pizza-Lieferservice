@@ -13,6 +13,14 @@ public class IceCreamImpl implements IceCream{
     private  List<? extends Extra<?>> extras;
     private String flavor;
 
+    /*
+    constructor
+    @param price, sets the value of price
+    @param weight, sets the value of weight
+    @param foodVariant, sets the value of foodVariant
+    @param extras, sets the value of extras
+    @param flavor, sets the value of flavor
+     */
     public IceCreamImpl(BigDecimal price, double weight, Variant<?,?> foodVariant, List<? extends Extra<?>> extras, String flavor)
     {
         this.price = price;
@@ -22,35 +30,51 @@ public class IceCreamImpl implements IceCream{
         this.flavor = flavor;
     }
     @Override
+      /*
+    @return the value of price
+     */
     public BigDecimal getPrice() {
         return price;
     }
 
     @Override
+     /*
+    @return the value of weight
+     */
     public double getWeight() {
         return weight;
     }
 
     @Override
+     /*
+    @return the value of foodVariant
+     */
     public Variant<?,?> getFoodVariant() {
         return foodVariant;
     }
 
     @Override
+    /*
+    @return the value of extras
+     */
     public List<? extends Extra<?>> getExtras() {
         return extras;
     }
 
+    /*
+    @return the value of flavor
+     */
     public String getFlavor()
     {
         return flavor;
     }
+
     private static class StaticIceCreamImpl implements Food.Config, IceCream.Config
     {
 
         @Override
         public void price(UnaryOperator<BigDecimal> priceMutator) {
-
+            priceMutator.apply((BigDecimal) priceMutator);
         }
 
         @Override
@@ -71,7 +95,7 @@ public class IceCreamImpl implements IceCream{
 
         @Override
         public void flavor(UnaryOperator<String> pobjUnaryOperator) {
-
+            pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
         }
 
         @Override
