@@ -17,12 +17,17 @@ public final class FoodTypes {
 
     public static Map<Food, Food.Config> ALL;
 
-  /*  static {
+    /*
+    set keys to the Map
+     */
+    static {
         ALL = new HashMap<>();
-        ALL.keySet("pizza", listPizza);;
-        ALL.put(PASTA);
-        ALL.put("iceCream", listIceCream);
-    }*/
+        ALL.put((Food) PIZZA, (Food.Config)listPizza);
+        ALL.put((Food) PASTA, (Food.Config)listPasta);
+        ALL.put((Food) ICE_CREAM, (Food.Config)listIceCream);
+
+
+    }
 
     static Food.Variant initializer;
 
