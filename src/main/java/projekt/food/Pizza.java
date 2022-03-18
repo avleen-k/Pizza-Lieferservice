@@ -3,15 +3,34 @@ package projekt.food;
 import java.util.function.DoubleUnaryOperator;
 
 public interface Pizza extends Saucable {
+    /**
+     * Getter method returning the diameter of the pizza
+     * @return double value defining the diameter
+     */
     double getDiameter();
 
+    /**
+     * Definition for the Pizza.Config interface
+     */
     interface Config extends Saucable.Config {
+        /**
+         * Method for introducing a new function to the current function composition manipulating the diameter value
+         * @param pobjDoubleUnaryOperator double function to add to current composition
+         */
         void diameter(DoubleUnaryOperator pobjDoubleUnaryOperator);
 
+        /**
+         * Getter method returning the current function composition for manipulating the diameter value
+         * @return current function composition
+         */
         DoubleUnaryOperator getDiameterMutator();
     }
 
     interface Variant<T,T1> extends Saucable.Variant {
+        /**
+         * Getter method that return information about the base diameter of the food variant
+         * @return double value defining the base diameter
+         */
         double getBaseDiameter();
     }
     //H2.11

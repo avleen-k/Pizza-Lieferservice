@@ -129,4 +129,168 @@ public class IceCreamImpl implements IceCream{
             return this.flavorMutator;
         }
     }
+
+    /**
+     * Definition of the vanilla ice cream variant
+     */
+    static class VanillaVariant implements Food.Variant, IceCream.Variant {
+
+        @Override
+        public String getName() {
+            return "Vanilla";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.ICE_CREAM;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(1.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticIceCreamImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((IceCream.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseFlavor() {
+            return "Vanilla";
+        }
+    }
+
+    /**
+     * Definition of the strawberry ice cream variant
+     */
+    static class StrawberryVariant implements Food.Variant, IceCream.Variant {
+
+        @Override
+        public String getName() {
+            return "Strawberry";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.ICE_CREAM;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(1.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticIceCreamImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((IceCream.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseFlavor() {
+            return "Strawberry";
+        }
+    }
+
+    /**
+     * Definition of the chocolate ice cream variant
+     */
+    static class ChocolateVariant implements Food.Variant, IceCream.Variant {
+
+        @Override
+        public String getName() {
+            return "Chocolate";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.ICE_CREAM;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(1.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticIceCreamImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((IceCream.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseFlavor() {
+            return "Chocolate";
+        }
+    }
+
+    /**
+     * Definition for the stracciatella ice cream variant
+     */
+    static class StracciatellaVariant implements Food.Variant, IceCream.Variant {
+
+        @Override
+        public String getName() {
+            return "Stracciatella";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.ICE_CREAM;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(1.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticIceCreamImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((IceCream.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseFlavor() {
+            return "Stracciatella";
+        }
+    }
 }

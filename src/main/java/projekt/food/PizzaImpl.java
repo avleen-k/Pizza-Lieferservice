@@ -157,4 +157,188 @@ public class PizzaImpl implements Pizza{
         }
 
     }
+
+    /**
+     * Definition of the margherita pizza variant
+     */
+    static class MargheritaVariant implements Saucable.Variant, Pizza.Variant {
+
+        @Override
+        public String getName() {
+            return "Margherita";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PIZZA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(9.75);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.8;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPizzaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pizza.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public double getBaseDiameter() {
+            return 30.0;
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return "Tomato";
+        }
+    }
+
+    /**
+     * Definition of the hawaii pizza variant
+     */
+    static class HawaiiVariant implements Saucable.Variant, Pizza.Variant {
+
+        @Override
+        public String getName() {
+            return "Hawaii";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PIZZA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(13.75);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 1.0;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPizzaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pizza.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public double getBaseDiameter() {
+            return 30.0;
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return "Tomato";
+        }
+    }
+
+    /**
+     * Definition of the rucola pizza variant
+     */
+    static class RucolaVariant implements Saucable.Variant, Pizza.Variant {
+
+        @Override
+        public String getName() {
+            return "Rucola";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PIZZA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(14.50);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.9;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPizzaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pizza.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public double getBaseDiameter() {
+            return 30.0;
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return "Tomato";
+        }
+    }
+
+    /**
+     * Definition of the BBQ pizza variant
+     */
+    static class BBQVariant implements Saucable.Variant, Pizza.Variant {
+
+        @Override
+        public String getName() {
+            return "BBQ";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PIZZA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(14.50);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 1.1;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPizzaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pizza.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public double getBaseDiameter() {
+            return 30.0;
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return "BBQ";
+        }
+    }
 }
