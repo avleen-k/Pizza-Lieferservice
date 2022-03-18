@@ -15,16 +15,19 @@ public final class FoodTypes {
      private static List<? extends Extra<? super Food.Config>> listIceCream = (List<? extends Extra<? super Food.Config>>) Arrays.asList(Extras.RAINBOW_SPRINKLES, Extras.EXTRA_SCOOP);
     public static FoodType<Food, Food.Config> ICE_CREAM = new FoodTypeImpl("IceCream", listIceCream);
 
-    public static Map<Food, Food.Config> ALL;
+    public static Map<String, FoodType> ALL;
 
     /**
     set keys to the Map
      */
     static {
         ALL = new HashMap<>();
-        ALL.put((Food) PIZZA, (Food.Config)listPizza);
-        ALL.put((Food) PASTA, (Food.Config)listPasta);
-        ALL.put((Food) ICE_CREAM, (Food.Config)listIceCream);
+       // ALL.put((Food) PIZZA, (Food.Config)listPizza);
+       // ALL.put((Food) PASTA, (Food.Config)listPasta);
+       // ALL.put((Food) ICE_CREAM, (Food.Config)listIceCream);
+        ALL.put("Pizza", PIZZA);
+        ALL.put("Pasta", PASTA);
+        ALL.put("Ice Cream", ICE_CREAM );
 
 
     }
