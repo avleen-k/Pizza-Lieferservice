@@ -3,6 +3,10 @@ package projekt.food;
 import java.util.function.DoubleUnaryOperator;
 
 public interface Pasta extends Saucable {
+    /**
+     * Getter method returning information about the thickness of the pasta
+     * @return double value containing the thickness of the pasta
+     */
     double getThickness();
 
     interface Config extends Saucable.Config {

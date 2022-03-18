@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.function.UnaryOperator;
 
 public interface IceCream extends Food {
+    /**
+     * Getter method returning information about the flavor of the ice cream
+     * @return string value defining the flavor
+     */
     String getFlavor();
 
     interface Config extends Food.Config {

@@ -3,8 +3,15 @@ package projekt.food;
 import java.util.function.DoubleUnaryOperator;
 
 public interface Pizza extends Saucable {
+    /**
+     * Getter method returning the diameter of the pizza
+     * @return double value defining the diameter
+     */
     double getDiameter();
 
+    /**
+     * Definition for the Pizza.Config interface
+     */
     interface Config extends Saucable.Config {
         void diameter(DoubleUnaryOperator pobjDoubleUnaryOperator);
 
