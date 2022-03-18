@@ -10,7 +10,9 @@ import java.util.function.UnaryOperator;
 
 
 public final class Extras {
-
+    /**
+     * this is a private constructor which prevents the class to be instantiated.
+     */
     private Extras(){}
 
     public static final Extra<Pizza.Config> EXTRA_HAM = new ExtraImpl<>("Extra Ham", 5, config -> {

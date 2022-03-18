@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.function.UnaryOperator;
 
 public interface IceCream extends Food {
-
     String getFlavor();
 
     interface Config extends Food.Config {
@@ -13,7 +12,7 @@ public interface IceCream extends Food {
         UnaryOperator<String> getFlavorMutator();
     }
 
-    interface Variant extends Food.Variant<IceCream,Config> {
+    interface Variant<T, T1> extends Food.Variant {
         String getBaseFlavor();
     }
     //H2.11

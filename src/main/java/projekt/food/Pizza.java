@@ -11,7 +11,7 @@ public interface Pizza extends Saucable {
         DoubleUnaryOperator getDiameterMutator();
     }
 
-    interface Variant extends Saucable.Variant {
+    interface Variant<T,T1> extends Saucable.Variant {
         double getBaseDiameter();
     }
     //H2.11

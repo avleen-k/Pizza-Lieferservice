@@ -8,12 +8,12 @@ import java.util.function.UnaryOperator;
 public class PastaImpl implements Pasta{
     private BigDecimal price;
     private double weight;
-    private Pasta.Variant foodVariant;
-    private  List<? extends Extra> extras;
+    private Pasta.Variant<?,?> foodVariant;
+    private  List<? extends Extra<?>> extras;
     private double thickness;
     private String sauce;
 
-    /*
+    /**
    constructor
    @param price, sets the value of price
    @param weight, sets the value of weight
@@ -22,7 +22,7 @@ public class PastaImpl implements Pasta{
    @param thickness, sets the value of thickness
     @param sauce, sets the value of sauce
     */
-    public PastaImpl(BigDecimal price, double weight, Pasta.Variant foodVariant, List<? extends Extra> extras, double thickness, String sauce)
+    public PastaImpl(BigDecimal price, double weight, Pasta.Variant<?,?> foodVariant, List<? extends Extra<?>> extras, double thickness, String sauce)
     {
         this.price = price;
         this.weight = weight;
@@ -32,7 +32,7 @@ public class PastaImpl implements Pasta{
         this.sauce = sauce;
     }
     @Override
-     /*
+     /**
     @return the value of price
      */
     public BigDecimal getPrice() {
@@ -40,7 +40,7 @@ public class PastaImpl implements Pasta{
     }
 
     @Override
-     /*
+     /**
     @return the value of weight
      */
     public double getWeight() {
@@ -48,7 +48,7 @@ public class PastaImpl implements Pasta{
     }
 
     @Override
-     /*
+     /**
     @return the value of foodVariant
      */
     public Food.Variant<?, ?> getFoodVariant() {
@@ -56,15 +56,15 @@ public class PastaImpl implements Pasta{
     }
 
     @Override
-     /*
+     /**
     @return the value of extras
      */
-    public List<? extends Extra> getExtras() {
+    public List<? extends Extra<?>> getExtras() {
         return extras;
     }
 
     @Override
-     /*
+     /**
     @return the value of thickness
      */
     public double getThickness() {
@@ -72,7 +72,7 @@ public class PastaImpl implements Pasta{
     }
 
     @Override
-     /*
+     /**
     @return the value of sauce
      */
     public String getSauce() {
@@ -87,7 +87,7 @@ public class PastaImpl implements Pasta{
         private DoubleUnaryOperator weightMutator;
 
         @Override
-        /*
+        /**
         the apply method of the UnaryOperator both accepts and returns a BigDecimal
         @param priceMutator
          */
@@ -97,15 +97,15 @@ public class PastaImpl implements Pasta{
         }
 
         @Override
-        /*
+        /**
         @return the value of priceMutator
-         */
+         **/
         public UnaryOperator<BigDecimal> getPriceMutator() {
             return this.priceMutator;
         }
 
         @Override
-        /*
+        /**
         the apply method of the DoubleUnaryOperator both accepts and returns the value of weightMutator
         @param priceMutator
          */
@@ -115,7 +115,7 @@ public class PastaImpl implements Pasta{
         }
 
         @Override
-         /*
+         /**
         @return the value of weightMutator
          */
         public DoubleUnaryOperator getWeightMutator() {
@@ -123,7 +123,7 @@ public class PastaImpl implements Pasta{
         }
 
         @Override
-        /*
+        /**
         the apply method of the UnaryOperator both accepts and returns a string
         @param pobjUnaryOperator
          */
@@ -134,7 +134,7 @@ public class PastaImpl implements Pasta{
         }
 
         @Override
-         /*
+         /**
         @return the value of sauceMutator
          */
         public UnaryOperator<String> getSauceMutator() {
@@ -143,7 +143,7 @@ public class PastaImpl implements Pasta{
 
 
         @Override
-        /*
+        /**
         the apply method of the DoubleUnaryOperator both accepts and returns the value of pobjDoubleUnaryOperator
         @param priceMutator
          */
@@ -153,7 +153,7 @@ public class PastaImpl implements Pasta{
         }
 
         @Override
-         /*
+         /**
         @return the value of thicknessMutator
          */
         public DoubleUnaryOperator getThicknessMutator() {

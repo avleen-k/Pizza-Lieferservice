@@ -8,12 +8,12 @@ import java.util.function.UnaryOperator;
 public class PizzaImpl implements Pizza{
     private BigDecimal price;
     private double weight;
-    private Pizza.Variant foodVariant;
-    private  List<? extends Extra> extras;
+    private Pizza.Variant<?,?> foodVariant;
+    private  List<? extends Extra<?>> extras;
     private double diameter;
     private String sauce;
 
-    /*
+    /**
  constructor
  @param price, sets the value of price
  @param weight, sets the value of weight
@@ -22,7 +22,7 @@ public class PizzaImpl implements Pizza{
  @param diameter, sets the value of diameter
   @param sauce, sets the value of sauce
   */
-    public PizzaImpl(BigDecimal price, double weight, Pizza.Variant foodVariant, List<? extends Extra> extras, double diameter, String sauce)
+    public PizzaImpl(BigDecimal price, double weight, Pizza.Variant<?,?> foodVariant, List<? extends Extra<?>> extras, double diameter, String sauce)
     {
         this.price = price;
         this.weight = weight;
@@ -32,7 +32,7 @@ public class PizzaImpl implements Pizza{
         this.sauce = sauce;
     }
     @Override
-    /*
+    /**
     @return the value of price
      */
     public BigDecimal getPrice() {
@@ -40,7 +40,7 @@ public class PizzaImpl implements Pizza{
     }
 
     @Override
-    /*
+    /**
     @return the value of weight
      */
     public double getWeight() {
@@ -48,7 +48,7 @@ public class PizzaImpl implements Pizza{
     }
 
     @Override
-    /*
+    /**
     @return the value of foodVariant
      */
     public Food.Variant<?, ?> getFoodVariant() {
@@ -56,15 +56,15 @@ public class PizzaImpl implements Pizza{
     }
 
     @Override
-    /*
+    /**
     @return the value of extras
      */
-    public List<? extends Extra> getExtras() {
+    public List<? extends Extra<?>> getExtras() {
         return extras;
     }
 
     @Override
-    /*
+    /**
     @return the value of diameter
      */
     public double getDiameter() {
@@ -72,7 +72,7 @@ public class PizzaImpl implements Pizza{
     }
 
     @Override
-    /*
+    /**
     @return the value of sauce
      */
     public String getSauce() {
@@ -87,7 +87,7 @@ public class PizzaImpl implements Pizza{
         private DoubleUnaryOperator diameter;
 
         @Override
-         /*
+         /**
         the apply method of the UnaryOperator both accepts and returns a BigDecimal
         @param priceMutator
          */
@@ -97,7 +97,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-        /*
+        /**
         @return the value of priceMutator
          */
         public UnaryOperator<BigDecimal> getPriceMutator() {
@@ -105,7 +105,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-        /*
+        /**
         the apply method of the DoubleUnaryOperator both accepts and returns the value of weightMutator
         @param weightMutator
          */
@@ -114,7 +114,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-        /*
+        /**
         @return the value of weightMutator
          */
         public DoubleUnaryOperator getWeightMutator() {
@@ -122,7 +122,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-        /*
+        /**
         the apply method of the UnaryOperator both accepts and returns a string
         @param pobjUnaryOperator
          */
@@ -132,7 +132,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-        /*
+        /**
         @return the value of sauceMutator
          */
         public UnaryOperator<String> getSauceMutator() {
@@ -140,7 +140,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-          /*
+          /**
         the apply method of the DoubleUnaryOperator both accepts and returns the value of diameter
         @param pobjDoubleUnaryOperator
          */
@@ -149,7 +149,7 @@ public class PizzaImpl implements Pizza{
         }
 
         @Override
-        /*
+        /**
         @return the value of diameter
          */
         public DoubleUnaryOperator getDiameterMutator() {

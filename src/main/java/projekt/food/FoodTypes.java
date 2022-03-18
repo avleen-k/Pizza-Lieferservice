@@ -17,7 +17,7 @@ public final class FoodTypes {
 
     public static Map<Food, Food.Config> ALL;
 
-    /*
+    /**
     set keys to the Map
      */
     static {

@@ -11,7 +11,7 @@ public interface Pasta extends Saucable {
         DoubleUnaryOperator getThicknessMutator();
     }
 
-    interface Variant extends Saucable.Variant {
+    interface Variant<T,T1> extends Saucable.Variant {
         double getBaseThickness();
     }
     //H.11

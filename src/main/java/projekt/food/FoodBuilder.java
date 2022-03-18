@@ -11,6 +11,6 @@ public interface FoodBuilder<F extends Food,C extends Food.Config,V extends Food
      * @param extras List of Extras
      * @return Food object
      */
-    F build(C c, V v, List<? extends Extra> extras);
+    F build(C c, V v, List<? extends Extra<?>> extras);
 
 }
