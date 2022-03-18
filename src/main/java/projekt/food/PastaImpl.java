@@ -81,48 +81,83 @@ public class PastaImpl implements Pasta{
     private static class StaticPastaImpl implements Saucable.Config, Pasta.Config
     {
 
+        private UnaryOperator<String> sauceMutator;
+        private DoubleUnaryOperator thicknessMutator;
+        private UnaryOperator<BigDecimal> priceMutator;
+        private DoubleUnaryOperator weightMutator;
+
         @Override
+        /*
+        the apply method of the UnaryOperator both accepts and returns a BigDecimal
+        @param priceMutator
+         */
         public void price(UnaryOperator<BigDecimal> priceMutator) {
-            priceMutator.apply((BigDecimal) priceMutator);
+           // priceMutator.apply((BigDecimal) priceMutator);
+            this.priceMutator = (UnaryOperator<BigDecimal>) this.priceMutator.andThen(priceMutator);
         }
 
         @Override
+        /*
+        @return the value of priceMutator
+         */
         public UnaryOperator<BigDecimal> getPriceMutator() {
-            return null;
+            return this.priceMutator;
         }
 
         @Override
+        /*
+        the apply method of the DoubleUnaryOperator both accepts and returns the value of weightMutator
+        @param priceMutator
+         */
         public void weight(DoubleUnaryOperator weightMutator) {
            // weightMutator.applyAsDouble(weightMutator.);
+            this.weightMutator = (DoubleUnaryOperator) this.weightMutator.andThen(weightMutator);
         }
 
         @Override
+         /*
+        @return the value of weightMutator
+         */
         public DoubleUnaryOperator getWeightMutator() {
-            return null;
+            return this.weightMutator;
         }
 
         @Override
         /*
         the apply method of the UnaryOperator both accepts and returns a string
+        @param pobjUnaryOperator
          */
         public void sauce(UnaryOperator<String> pobjUnaryOperator) {
-            pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
+         //   pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
+            this.sauceMutator = (UnaryOperator<String>) this.sauceMutator.andThen(pobjUnaryOperator);
+
         }
 
         @Override
+         /*
+        @return the value of sauceMutator
+         */
         public UnaryOperator<String> getSauceMutator() {
-            return null;
+            return this.sauceMutator;
         }
 
 
         @Override
+        /*
+        the apply method of the DoubleUnaryOperator both accepts and returns the value of pobjDoubleUnaryOperator
+        @param priceMutator
+         */
         public void thickness(DoubleUnaryOperator pobjDoubleUnaryOperator) {
            // pobjDoubleUnaryOperator.applyAsDouble(pobjDoubleUnaryOperator);
+            this.thicknessMutator = (DoubleUnaryOperator) this.thicknessMutator.andThen(pobjDoubleUnaryOperator);
         }
 
         @Override
+         /*
+        @return the value of thicknessMutator
+         */
         public DoubleUnaryOperator getThicknessMutator() {
-            return null;
+            return this.thicknessMutator;
         }
     }
 }

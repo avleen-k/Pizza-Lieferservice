@@ -71,36 +71,62 @@ public class IceCreamImpl implements IceCream{
 
     private static class StaticIceCreamImpl implements Food.Config, IceCream.Config
     {
+            private UnaryOperator<BigDecimal> priceMutator;
+            private DoubleUnaryOperator weightMutator;
+            private UnaryOperator<String> flavorMutator;
 
         @Override
+         /*
+        the apply method of the UnaryOperator both accepts and returns a BigDecimal
+        @param priceMutator
+         */
         public void price(UnaryOperator<BigDecimal> priceMutator) {
-            priceMutator.apply((BigDecimal) priceMutator);
+            //priceMutator.apply((BigDecimal) priceMutator);
+            this.priceMutator = (UnaryOperator<BigDecimal>) this.priceMutator.andThen(priceMutator);
         }
 
         @Override
+          /*
+        @return the value of priceMutator
+         */
         public UnaryOperator<BigDecimal> getPriceMutator() {
-            return null;
+            return this.priceMutator;
         }
 
         @Override
+          /*
+        the apply method of the DoubleUnaryOperator both accepts and returns the value of weightMutator
+        @param priceMutator
+         */
         public void weight(DoubleUnaryOperator weightMutator) {
-
+            this.weightMutator = (DoubleUnaryOperator) this.weightMutator.andThen(weightMutator);
         }
 
         @Override
+         /*
+        @return the value of weightMutator
+         */
         public DoubleUnaryOperator getWeightMutator() {
-            return null;
+            return this.weightMutator;
         }
 
 
         @Override
+         /*
+        the apply method of the UnaryOperator both accepts and returns a String
+        @param pobjUnaryOperator
+         */
         public void flavor(UnaryOperator<String> pobjUnaryOperator) {
-            pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
+           // pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
+            this.flavorMutator = (UnaryOperator<String>) this.flavorMutator.andThen(pobjUnaryOperator);
         }
 
         @Override
+         /*
+        @return the value of flavorMutator
+         */
         public UnaryOperator<String> getFlavorMutator() {
-            return null;
+            return this.flavorMutator;
         }
     }
 }

@@ -1,24 +1,28 @@
 package projekt.food;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public final class FoodTypes {
 
-   public static FoodType<Saucable, Saucable.Config> pizza; // = new FoodTypeImpl("Pizza", );
-      //  private List<? extends Extra<? super Food.Config>> listPizza = {};
-    public static FoodType<Saucable, Saucable.Config> pasta;
-        //private List<? extends Extra<? super Food.Config>> listPasta = {};
-    public static FoodType<Food, Food.Config> iceCream;
-        // private List<? extends Extra<? super Food.Config>> listIceCream = {};
-    public static Map<Food, Food.Config> ALL; // = new HashMap<Food, Food.Config>;
-    static {
+
+    private static  List<? extends Extra<? super Food.Config>> listPizza = (List<? extends Extra<? super Food.Config>>) Arrays.asList(Extras.EXTRA_HAM,Extras.EXTRA_OLIVES,Extras.SPICY_SAUCE, Extras.EXTRA_SAUCE, Extras.NO_SAUCE);
+
+    public static FoodType<Saucable, Saucable.Config> PIZZA = new FoodTypeImpl("Pizza",listPizza );
+
+    private static List<? extends Extra<? super Food.Config>> listPasta = (List<? extends Extra<? super Food.Config>>) Arrays.asList(Extras.EXTRA_THICK, Extras.SPICY_SAUCE, Extras.EXTRA_SAUCE, Extras.NO_SAUCE);
+    public static FoodType<Saucable, Saucable.Config> PASTA = new FoodTypeImpl("Pasta", listPasta);
+
+     private static List<? extends Extra<? super Food.Config>> listIceCream = (List<? extends Extra<? super Food.Config>>) Arrays.asList(Extras.RAINBOW_SPRINKLES, Extras.EXTRA_SCOOP);
+    public static FoodType<Food, Food.Config> ICE_CREAM = new FoodTypeImpl("IceCream", listIceCream);
+
+    public static Map<Food, Food.Config> ALL;
+
+  /*  static {
         ALL = new HashMap<>();
-       // ALL.put(pizza, listPizza);
-       // ALL.put(pasta, listPasta);
-       // ALL.put(iceCream, listIceCream);
-    }
+        ALL.keySet("pizza", listPizza);;
+        ALL.put(PASTA);
+        ALL.put("iceCream", listIceCream);
+    }*/
 
     static Food.Variant initializer;
 

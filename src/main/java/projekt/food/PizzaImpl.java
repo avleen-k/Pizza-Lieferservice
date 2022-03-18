@@ -81,47 +81,79 @@ public class PizzaImpl implements Pizza{
 
     private static class StaticPizzaImpl implements  Pizza.Config, Saucable.Config{
 
+        private UnaryOperator<BigDecimal> priceMutator;
+        private DoubleUnaryOperator weightMutator;
+        private UnaryOperator<String> sauceMutator;
+        private DoubleUnaryOperator diameter;
+
         @Override
+         /*
+        the apply method of the UnaryOperator both accepts and returns a BigDecimal
+        @param priceMutator
+         */
         public void price(UnaryOperator<BigDecimal> priceMutator) {
-            priceMutator.apply((BigDecimal) priceMutator);
+           // priceMutator.apply((BigDecimal) priceMutator);
+            this.priceMutator = (UnaryOperator<BigDecimal>) this.priceMutator.andThen(priceMutator);
         }
 
         @Override
+        /*
+        @return the value of priceMutator
+         */
         public UnaryOperator<BigDecimal> getPriceMutator() {
-            return null;
+            return this.priceMutator;
         }
 
         @Override
+        /*
+        the apply method of the DoubleUnaryOperator both accepts and returns the value of weightMutator
+        @param weightMutator
+         */
         public void weight(DoubleUnaryOperator weightMutator) {
-
+                this.weightMutator = (DoubleUnaryOperator) this.weightMutator.andThen(weightMutator);
         }
 
         @Override
+        /*
+        @return the value of weightMutator
+         */
         public DoubleUnaryOperator getWeightMutator() {
-            return null;
+            return this.weightMutator;
         }
 
         @Override
         /*
         the apply method of the UnaryOperator both accepts and returns a string
+        @param pobjUnaryOperator
          */
         public void sauce(UnaryOperator<String> pobjUnaryOperator) {
-            pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
+            //pobjUnaryOperator.apply(String.valueOf(pobjUnaryOperator));
+            this.sauceMutator = (UnaryOperator<String>) this.sauceMutator.andThen(pobjUnaryOperator);
         }
 
         @Override
+        /*
+        @return the value of sauceMutator
+         */
         public UnaryOperator<String> getSauceMutator() {
-            return null;
+            return this.sauceMutator;
         }
 
         @Override
+          /*
+        the apply method of the DoubleUnaryOperator both accepts and returns the value of diameter
+        @param pobjDoubleUnaryOperator
+         */
         public void diameter(DoubleUnaryOperator pobjDoubleUnaryOperator) {
-
+            this.diameter = (DoubleUnaryOperator) this.diameter.andThen(pobjDoubleUnaryOperator);
         }
 
         @Override
+        /*
+        @return the value of diameter
+         */
         public DoubleUnaryOperator getDiameterMutator() {
-            return null;
+            return this.diameter;
         }
 
     }
