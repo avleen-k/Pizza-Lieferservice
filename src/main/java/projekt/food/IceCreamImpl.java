@@ -9,8 +9,8 @@ public class IceCreamImpl implements IceCream{
 
     private BigDecimal price;
     private double weight;
-    private Variant<?,?> foodVariant;
-    private  List<? extends Extra<?>> extras;
+    private Variant foodVariant;
+    private  List<? extends Extra> extras;
     private String flavor;
 
     /*
@@ -21,7 +21,7 @@ public class IceCreamImpl implements IceCream{
     @param extras, sets the value of extras
     @param flavor, sets the value of flavor
      */
-    public IceCreamImpl(BigDecimal price, double weight, Variant<?,?> foodVariant, List<? extends Extra<?>> extras, String flavor)
+    public IceCreamImpl(BigDecimal price, double weight, Variant foodVariant, List<? extends Extra> extras, String flavor)
     {
         this.price = price;
         this.weight = weight;
@@ -49,7 +49,7 @@ public class IceCreamImpl implements IceCream{
      /*
     @return the value of foodVariant
      */
-    public Variant<?,?> getFoodVariant() {
+    public Variant getFoodVariant() {
         return foodVariant;
     }
 
@@ -57,7 +57,7 @@ public class IceCreamImpl implements IceCream{
     /*
     @return the value of extras
      */
-    public List<? extends Extra<?>> getExtras() {
+    public List<? extends Extra> getExtras() {
         return extras;
     }
 

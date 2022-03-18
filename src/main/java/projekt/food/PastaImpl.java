@@ -8,8 +8,8 @@ import java.util.function.UnaryOperator;
 public class PastaImpl implements Pasta{
     private BigDecimal price;
     private double weight;
-    private IceCream.Variant<?,?> foodVariant;
-    private  List<? extends Extra<?>> extras;
+    private Pasta.Variant foodVariant;
+    private  List<? extends Extra> extras;
     private double thickness;
     private String sauce;
 
@@ -22,7 +22,7 @@ public class PastaImpl implements Pasta{
    @param thickness, sets the value of thickness
     @param sauce, sets the value of sauce
     */
-    public PastaImpl(BigDecimal price, double weight, IceCream.Variant<?,?> foodVariant, List<? extends Extra<?>> extras, double thickness, String sauce)
+    public PastaImpl(BigDecimal price, double weight, Pasta.Variant foodVariant, List<? extends Extra> extras, double thickness, String sauce)
     {
         this.price = price;
         this.weight = weight;
@@ -59,7 +59,7 @@ public class PastaImpl implements Pasta{
      /*
     @return the value of extras
      */
-    public List<? extends Extra<?>> getExtras() {
+    public List<? extends Extra> getExtras() {
         return extras;
     }
 
