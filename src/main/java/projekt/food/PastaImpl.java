@@ -78,6 +78,7 @@ public class PastaImpl implements Pasta{
     public String getSauce() {
         return sauce;
     }
+
     private static class StaticPastaImpl implements Saucable.Config, Pasta.Config
     {
 
@@ -158,6 +159,186 @@ public class PastaImpl implements Pasta{
          */
         public DoubleUnaryOperator getThicknessMutator() {
             return this.thicknessMutator;
+        }
+    }
+
+    /**
+     * Definition of the spaghetti pasta variant
+     */
+    static class SpaghettiVariant implements Saucable.Variant, Pasta.Variant {
+        @Override
+        public String getName() {
+            return "Spaghetti";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PASTA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(12.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPastaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pasta.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return null;
+        }
+
+        @Override
+        public double getBaseThickness() {
+            return 2;
+        }
+    }
+
+    /**
+     * Definition of the rigatoni past variant
+     */
+    static class RigatoniVariant implements Saucable.Variant, Pasta.Variant {
+        @Override
+        public String getName() {
+            return "Rigatoni";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PASTA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(11.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPastaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pasta.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return null;
+        }
+
+        @Override
+        public double getBaseThickness() {
+            return 10;
+        }
+    }
+
+    /**
+     * Definition of the ravioli pasta variant
+     */
+    static class RavioliVariant implements Saucable.Variant, Pasta.Variant {
+        @Override
+        public String getName() {
+            return "Ravioli";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PASTA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(12.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPastaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pasta.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return null;
+        }
+
+        @Override
+        public double getBaseThickness() {
+            return 40;
+        }
+    }
+
+    /**
+     * Definition of the fusilli pasta variant
+     */
+    static class FusilliVariant implements Saucable.Variant, Pasta.Variant {
+        @Override
+        public String getName() {
+            return "Spaghetti";
+        }
+
+        @Override
+        public FoodType getFoodType() {
+            return FoodTypes.PASTA;
+        }
+
+        @Override
+        public BigDecimal getBasePrice() {
+            return BigDecimal.valueOf(12.5);
+        }
+
+        @Override
+        public double getBaseWeight() {
+            return 0.2;
+        }
+
+        @Override
+        public Food.Config createEmptyConfig() {
+            return new StaticPastaImpl();
+        }
+
+        @Override
+        public Food create(List list) {
+            return BUILDER.build((Pasta.Config) this.createEmptyConfig(), this, list);
+        }
+
+        @Override
+        public String getBaseSauce() {
+            return null;
+        }
+
+        @Override
+        public double getBaseThickness() {
+            return 15;
         }
     }
 }
