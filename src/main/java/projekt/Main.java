@@ -11,6 +11,6 @@ public class Main {
      * @param args program arguments, currently ignored
      */
     public static void main(String[] args) {
-        System.out.println("Hello World!" + "from Ana!");
+        System.out.println("Hello World!");
     }
 }
