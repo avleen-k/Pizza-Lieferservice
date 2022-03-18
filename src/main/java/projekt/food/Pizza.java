@@ -13,8 +13,16 @@ public interface Pizza extends Saucable {
      * Definition for the Pizza.Config interface
      */
     interface Config extends Saucable.Config {
+        /**
+         * Method for introducing a new function to the current function composition manipulating the diameter value
+         * @param pobjDoubleUnaryOperator double function to add to current composition
+         */
         void diameter(DoubleUnaryOperator pobjDoubleUnaryOperator);
 
+        /**
+         * Getter method returning the current function composition for manipulating the diameter value
+         * @return current function composition
+         */
         DoubleUnaryOperator getDiameterMutator();
     }
 

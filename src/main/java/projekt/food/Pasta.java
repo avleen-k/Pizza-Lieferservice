@@ -9,9 +9,20 @@ public interface Pasta extends Saucable {
      */
     double getThickness();
 
+    /**
+     * Definition of the Pasta.Config interface
+     */
     interface Config extends Saucable.Config {
+        /**
+         * Method for introducing a new function to the composition that manipulates the thickness attribute value
+         * @param pobjDoubleUnaryOperator new function that is to be introduced
+         */
         void thickness(DoubleUnaryOperator pobjDoubleUnaryOperator);
 
+        /**
+         * Getter method for the current function composition that manipulates the thickness attribute value
+         * @return DoubleUnaryOperator function composition
+         */
         DoubleUnaryOperator getThicknessMutator();
     }
 

@@ -10,9 +10,20 @@ public interface IceCream extends Food {
      */
     String getFlavor();
 
+    /**
+     * Definition of the IceCream.Config interface
+     */
     interface Config extends Food.Config {
+        /**
+         * Method for introducing a new function to the composition that manipulates the flavor attribute value
+         * @param pobjUnaryOperator string function that should be added to the composition
+         */
         void flavor(UnaryOperator<String> pobjUnaryOperator);
 
+        /**
+         * Getter method for the current function composition that manipulates the flavor attribute value
+         * @return UnaryOperator of type string or string function composition
+         */
         UnaryOperator<String> getFlavorMutator();
     }
 
