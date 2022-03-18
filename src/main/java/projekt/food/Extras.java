@@ -40,7 +40,7 @@ public final class Extras {
     public static final Extra<Saucable.Config> SPICY_SAUCE = new ExtraImpl<>("Spicy Sauce ", 4, config -> {
         UnaryOperator<BigDecimal> unaryOperator = x -> x.add(new BigDecimal(0.5));
         config.price(unaryOperator);
-        UnaryOperator<String> stringUnaryOperator = x -> "Spicy ";
+        UnaryOperator<String> stringUnaryOperator = x -> "Spicy " + x;
         config.sauce(stringUnaryOperator);
     });
 
@@ -49,7 +49,7 @@ public final class Extras {
         config.price(unaryOperator);
         DoubleUnaryOperator doubleUnaryOperator = x -> x + 0.12;
         config.weight(doubleUnaryOperator);
-        UnaryOperator<String> stringUnaryOperator = x -> "Extra ";
+        UnaryOperator<String> stringUnaryOperator = x -> "Extra " + x;
         config.sauce(stringUnaryOperator);
     });
 
