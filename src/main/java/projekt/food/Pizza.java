@@ -27,6 +27,10 @@ public interface Pizza extends Saucable {
     }
 
     interface Variant<T,T1> extends Saucable.Variant {
+        /**
+         * Getter method that return information about the base diameter of the food variant
+         * @return double value defining the base diameter
+         */
         double getBaseDiameter();
     }
     //H2.11

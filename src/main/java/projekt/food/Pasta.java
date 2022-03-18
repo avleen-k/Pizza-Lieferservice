@@ -27,6 +27,10 @@ public interface Pasta extends Saucable {
     }
 
     interface Variant<T,T1> extends Saucable.Variant {
+        /**
+         * Getter method that returns information about the base thickness of the food variant
+         * @return double value defining the base thickness
+         */
         double getBaseThickness();
     }
     //H.11

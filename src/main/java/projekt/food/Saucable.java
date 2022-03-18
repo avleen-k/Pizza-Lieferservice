@@ -29,7 +29,10 @@ public interface Saucable extends Food {
     }
 
     interface Variant extends Food.Variant {
-
+        /**
+         * Getter method that returns information about the base sauce of the food variant
+         * @return string value defining the base sauce
+         */
         String getBaseSauce();
     }
 }

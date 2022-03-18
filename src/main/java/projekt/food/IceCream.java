@@ -28,6 +28,10 @@ public interface IceCream extends Food {
     }
 
     interface Variant<T, T1> extends Food.Variant {
+        /**
+         * Getter method that returns information about the base flavor of the food variant
+         * @return string value defining the base flavor
+         */
         String getBaseFlavor();
     }
     //H2.11
